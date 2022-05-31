@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pontos Turístico</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap""
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../src/style/index.css" />
+  </head>
+  <body>
+    <main class="tourist-spots">
+      <section class="tourist-spots-container">
+        <h2 class="tourist-spots-title">Adicionar um Ponto Turístico</h2>
+
+        <form action="" class="tourist-spots-form">
+          <div class="tourist-spots-input">
+            <label for="img" class="tourist-spots-input-img">
+              Imagem
+              <input
+                type="file"
+                class="tourist-spots-input-img-input"
+                id="img"
+                name="img"
+                accept="image/*"
+              />
+            </label>
+            <input
+              type="text"
+              class="tourist-spots-input-title"
+              placeholder="Titulo"
+            />
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              class="tourist-spots-input-description"
+              placeholder="Descrição"
+            ></textarea>
+          </div>
+          <button type="submit" class="tourist-spots-submit-button">
+            Adicionar
+          </button>
+        </form>
+      </section>
+
+      <section class="tourist-spots-list">
+        <h2 class="tourist-spots-list-title">Pontos Turísticos</h2>
+        <div class="tourist-spots-list-items">
+
+          <div class="tourist-spots-list-item">
+            <div class="tourist-spots-list-item-img">
+              <img
+                src="../src/assets/rio-de-janeiro-panorama_YuJas-Shutterstock_2.jpg.image.694.390.low.jpg"
+                alt=""
+              />
+            </div>
+            <div class="tourist-spots-list-item-description">
+              <h3 class="tourist-spots-list-item-title">Testing</h3>
+              <p class="tourist-spots-list-item-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
+                veritatis voluptatibus libero cumque!
+              </p>
+            </div>
+          </div>
+
+          <div class="tourist-spots-list-item">
+            <div class="tourist-spots-list-item-img">
+              <img
+                src="../src/assets/rio-de-janeiro-panorama_YuJas-Shutterstock_2.jpg.image.694.390.low.jpg"
+                alt=""
+              />
+            </div>
+            <div class="tourist-spots-list-item-description">
+              <h3 class="tourist-spots-list-item-title">Testing</h3>
+              <p class="tourist-spots-list-item-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
+                veritatis voluptatibus libero cumque!
+              </p>
+            </div>
+        </div>
+
+        <div class="tourist-spots-list-item">
+            <div class="tourist-spots-list-item-img">
+              <img
+                src="../src/assets/rio-de-janeiro-panorama_YuJas-Shutterstock_2.jpg.image.694.390.low.jpg"
+                alt=""
+              />
+            </div>
+            <div class="tourist-spots-list-item-description">
+              <h3 class="tourist-spots-list-item-title">Testing</h3>
+              <p class="tourist-spots-list-item-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
+                veritatis voluptatibus libero cumque!
+              </p>
+            </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
