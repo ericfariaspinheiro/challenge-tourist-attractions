@@ -154,11 +154,11 @@ button {
 } */
 
 @media screen and (min-width: 900px) {
-  .tourist-spots {
+  /* .tourist-spots {
     margin: 0 60px;
-  }
+  } */
 
-  .tourist-spots-input {
+  /* .tourist-spots-input {
     max-height: 212px;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -166,48 +166,48 @@ button {
     grid-row-gap: 16px;
     padding: unset;
     margin-bottom: 16px;
-  }
+  } */
 
-  .tourist-spots-input-img {
+  /* .tourist-spots-input-img {
     grid-area: 1 / 1 / 4 / 2;
     margin-bottom: unset;
-  }
+  } */
 
-  .tourist-spots-input-title {
+  /* .tourist-spots-input-title {
     grid-area: 1 / 2 / 2 / 3;
     max-width: 328px;
     margin-bottom: unset;
-  }
-
+  } */
+  /* 
   .tourist-spots-input-description {
     grid-area: 2 / 2 / 4 / 3;
     max-height: 136px;
-  }
+  } */
 
-  .tourist-spots-submit-button {
+  /* .tourist-spots-submit-button {
     max-width: 122px;
-  }
+  } */
 
-  .tourist-spots-list {
+  /* .tourist-spots-list {
     margin-bottom: 180px;
-  }
+  } */
 
-  .tourist-spots-list-items {
+  /* .tourist-spots-list-items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 24px;
     grid-row-gap: 16px;
-  }
+  } */
 
-  .tourist-spots-list-item {
+  /* .tourist-spots-list-item {
     flex-direction: row;
     max-width: 576px;
     margin-bottom: unset;
-  }
+  } */
 
-  .tourist-spots-list-item-img {
+  /* .tourist-spots-list-item-img {
     width: 50%;
-  }
+  } */
 
   .tourist-spots-list-item-description {
     width: 50%;
