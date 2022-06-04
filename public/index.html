@@ -23,28 +23,32 @@
 
         <form action="" class="tourist-spots-form">
           <div class="tourist-spots-input">
-            <label for="img" class="tourist-spots-input-img">
-              Imagem
+            <div class="tourist-spots-input-img" id="img-container">
+              <span class="input-label">Imagem</span>
               <input
                 type="file"
                 class="tourist-spots-input-img-input"
                 id="img"
                 name="img"
                 accept="image/*"
+                required
               />
-            </label>
+            </div>
             <input
               type="text"
+              id="tourist-spot-name"
               class="tourist-spots-input-title"
               placeholder="Titulo"
+              required
             />
             <textarea
               name=""
-              id=""
+              id="tourist-spot-description"
               cols="30"
               rows="10"
               class="tourist-spots-input-description"
               placeholder="Descrição"
+              required
             ></textarea>
           </div>
           <button type="submit" class="tourist-spots-submit-button">
@@ -60,7 +64,25 @@
             <div class="list-item-div-img">
               <img
                 class="list-item-img"
-                src="../src/assets/rio-de-janeiro-panorama_YuJas-Shutterstock_2.jpg.image.694.390.low.jpg"
+                src="../src/assets/rio-de-janeiro.png"
+                alt=""
+              />
+            </div>
+            <div class="list-item-description">
+              <div class="list-item-description-container">
+                <h3 class="list-item-description-title">Pão de Açucar</h3>
+                <p class="list-item-description-text">
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-div-img">
+              <img
+                class="list-item-img"
+                src="../src/assets/ilha-grande.png"
                 alt=""
               />
             </div>
@@ -74,27 +96,10 @@
               </div>
             </div>
           </div>
-
-          <div class="list-item">
-            <div class="list-item-div-img">
-              <img
-                class="list-item-img"
-                src="../src/assets/rio-de-janeiro-panorama_YuJas-Shutterstock_2.jpg.image.694.390.low.jpg"
-                alt=""
-              />
-            </div>
-            <div class="list-item-description">
-              <div class="list-item-description-container">
-                <h3 class="list-item-description-title">Pão de Açucar</h3>
-                <p class="list-item-description-text">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.
-                </p>
-              </div>
-            </div>
-        </div>
       </section>
 
     </main>
+
+    <script src="../src/scripts/indes.js"></script>
   </body>
 </html>

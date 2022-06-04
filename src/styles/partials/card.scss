@@ -1,9 +1,10 @@
 .list-item {
   display: flex;
   flex-direction: column;
-  max-height: 424px;
   width: 100%;
   margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
 
   .list-item-div-img {
     height: 212px;
@@ -21,27 +22,30 @@
     }
   }
 
-  .list-item-description-container {
-    max-width: 288px;
-    height: 100%;
-    margin: auto;
-    padding: 24px;
-
-    .list-item-description-title {
-      font-size: 24px;
-      min-height: 60px;
-      margin-bottom: 8px;
-    }
-
-    .list-item-description-text {
-      font-family: "Roboto";
-      font-size: 16px;
-      color: #858585;
-      font-weight: 400;
-    }
-
+  .list-item-description{
+    .list-item-description-container {
+      max-width: 288px;
+      margin: auto;
+      padding: 24px;
+  
+      .list-item-description-title {
+        font-size: 24px;
+        min-height: 60px;
+        margin-bottom: 8px;
+      }
+  
+      .list-item-description-text {
+        font-family: "Roboto";
+        font-size: 16px;
+        color: #858585;
+        font-weight: 400;
+      }
+  }
+  
     @media screen and (min-width: $break-medium) {
-      overflow: scroll;
+      overflow-y: auto;
+      width: 50%;
+      height: 212px;
     }
   }
 

@@ -12,14 +12,11 @@
     flex-direction: column;
 
     @media screen and (min-width: $break-medium) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 24px;
+      grid-row-gap: 16px;
       margin-bottom: 180px;
     }
-  }
-
-  @media screen and (min-width: $break-medium) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 24px;
-    grid-row-gap: 16px;
   }
 }
