@@ -1,34 +1,70 @@
-const { src, dest, watch } = require("gulp");
+const { src, dest, watch, parallel } = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
-// const browserify = require("browserify");
-// const babelify = require("babelify");
-// const source = require("vinyl-source-stream");
-// const buffer = require("vinyl-buffer");
-// const uglify = require("gulp-uglify");
+const browserify = require("browserify");
+const babelify = require("babelify");
+const source = require("vinyl-source-stream");
+const buffer = require("vinyl-buffer");
+const uglify = require("gulp-uglify");
+const connect = require("gulp-connect");
+const imagemin = require("gulp-imagemin");
 
-function styles() {
-  return src("src/styles/main.scss")
-    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
-    .pipe(dest("dist"));
+const paths = {
+  html: {
+    all: "src/templates/**/*.html",
+  },
+  styles: {
+    all: "src/styles/**/*.scss",
+    main: "src/styles/main.scss",
+  },
+  scripts: {
+    all: "src/scripts/**/*.js",
+    main: "src/scripts/app.js",
+  },
+  output: "dist",
+};
+
+function server() {
+  connect.server({
+    root: "dist",
+    livereload: true,
+    port: 3000,
+  });
 }
-
-// function scripts() {
-//   return browserify("src/scripts/app.js")
-//     .transform(
-//       babelify.configure({
-//         presets: ["@babel/preset-env"],
-//       })
-//     )
-//     .bundle()
-//     .pipe(source("bundle.js"))
-//     .pipe(buffer())
-//     .pipe(uglify())
-//     .pipe(dest("dist"));
-// }
 
 function sentinel() {
-  watch("src/styles/**/*.scss", { ignoreInitial: false }, styles);
-  // watch("src/scripts/**/*.js", { ignoreInitial: false }, scripts);
+  watch(paths.html.all, { ignoreInitial: false }, html);
+  watch(paths.styles.all, { ignoreInitial: false }, styles);
+  watch(paths.scripts.all, { ignoreInitial: false }, scripts);
 }
 
-exports.sentinel = sentinel;
+function images() {
+  return src("src/assets/**/*")
+    .pipe(imagemin({ verbose: true }))
+    .pipe(dest("dist/assets"));
+}
+
+function html() {
+  return src(paths.html.all).pipe(dest(paths.output));
+}
+
+function styles() {
+  return src(paths.styles.main)
+    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
+    .pipe(dest(paths.output));
+}
+
+function scripts() {
+  return browserify(paths.scripts.main)
+    .transform(
+      babelify.configure({
+        presets: ["@babel/preset-env"],
+      })
+    )
+    .bundle()
+    .pipe(source("bundle.js"))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(dest(paths.output));
+}
+
+exports.default = parallel(server, sentinel, images);
