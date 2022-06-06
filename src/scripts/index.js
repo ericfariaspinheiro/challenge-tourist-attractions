@@ -1,11 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const touristSpotList = [];
+  const touristSpotList = [
+    {
+      image: "../src/assets/rio-de-janeiro.png",
+      name: "Rio de Janeiro",
+      description:
+        "Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.",
+    },
+    {
+      image: "../src/assets/ilha-grande.png",
+      name: "Ilha Grande",
+      description:
+        "Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.",
+    },
+    {
+      image: "../src/assets/cristo-redentor.png",
+      name: "Cristo Redentor",
+      description:
+        "Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.",
+    },
+    {
+      image: "../src/assets/centro-historico-paraty.png",
+      name: "Centro Histórico de Paraty",
+      description:
+        "Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.",
+    },
+  ];
 
   const dropArea = document.querySelector(".tourist-spots-input-img");
   const dropInput = document.querySelector(".tourist-spots-input-img-input");
-  const inputLabel = document.querySelector(".input-label");
   const formSubmit = document.querySelector(".tourist-spots-form");
-  const cards = document.querySelector(".tourist-spots-list");
+  const cards = document.querySelector(".list-items");
+
+  renderList();
 
   dropArea.addEventListener("click", dropInputClick);
   dropArea.addEventListener("change", onFileSelection);
@@ -37,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function updateThumbnail(dropZoneElement, file) {
-    inputLabel.remove();
+    document.querySelector(".input-label").remove();
 
     if (file.type.startsWith("image/")) {
       const reader = new FileReader();
@@ -46,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
       reader.onload = () => {
         dropArea.style.backgroundImage = `url('${reader.result}')`;
         dropArea.style.backgroundOrigin = "border-box";
+        dropArea.style.backgroundRepeat = "round";
       };
     } else {
       dropArea.style.backgroundImage = null;
@@ -66,18 +93,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     touristSpotList.push(newTouristSpot);
     renderList();
+    resetList();
   }
 
   function renderList() {
     let newSpotStructure = "";
 
-    touristSpotList.forEach((item) => {
+    touristSpotList.forEach((item, index) => {
       newSpotStructure += `
         <div class="list-item">
           <div class="list-item-div-img">
             <img
               class="list-item-img"
-              src="${item.image}"
+              src="${
+                index > 3 ? window.URL.createObjectURL(item.image) : item.image
+              }"
               alt=""
             />
           </div>
@@ -92,8 +122,23 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       `;
     });
-    console.log(newSpotStructure);
+
     cards.innerHTML = newSpotStructure;
-    console.log(touristSpotList[0]);
+  }
+
+  function resetList() {
+    const clearTitle = document.querySelector(".tourist-spots-input-title");
+    const clearDescription = document.querySelector(
+      ".tourist-spots-input-description"
+    );
+    const clearImage = document.querySelector(".tourist-spots-input-img");
+    const inputImageText = document.createElement("span");
+    inputImageText.innerText = "Imagem";
+    inputImageText.classList.add("input-label");
+
+    clearTitle.value = "";
+    clearDescription.value = "";
+    clearImage.style.backgroundImage = "unset";
+    clearImage.appendChild(inputImageText);
   }
 });
