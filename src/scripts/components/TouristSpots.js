@@ -41,15 +41,10 @@ export class TouristSpots {
   }
 
   events() {
-    this.dropArea.addEventListener("click", this.inputClick.bind(this));
     this.dropArea.addEventListener("change", this.onFileSelection.bind(this));
     this.dropArea.addEventListener("dragover", this.dragOverEvent.bind(this));
     this.dropArea.addEventListener("drop", this.dropEvent.bind(this));
     this.formSubmit.addEventListener("submit", this.addCardToList.bind(this));
-  }
-
-  inputClick() {
-    this.dropInput.click();
   }
 
   onFileSelection() {
@@ -151,5 +146,7 @@ export class TouristSpots {
     clearDescription.value = "";
     this.dropArea.style.backgroundImage = "unset";
     this.imgInputLabel.style.display = "block";
+
+    this.dropInput.value = "";
   }
 }

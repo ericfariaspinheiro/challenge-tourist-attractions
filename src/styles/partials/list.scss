@@ -7,11 +7,13 @@
   }
 
   .list-cards {
-    max-width: 1176px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
+    margin: auto;
 
-    @media screen and (min-width: $break-medium) {
+    @media screen and (min-width: $break-small) {
+      max-width: 1178px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-column-gap: 24px;

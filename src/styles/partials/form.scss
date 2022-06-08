@@ -35,8 +35,18 @@
           height: 100%;
         }
 
+        .input-label {
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          line-height: 13.1;
+        }
+
         .img-input {
-          display: none;
+          opacity: 0;
+          position: absolute;
+          width: 1px;
+          pointer-events: none;
         }
 
         @media screen and (min-width: $break-medium) {
@@ -92,17 +102,17 @@
       height: 56px;
       border: 1px solid #ff5a5f;
       border-radius: 8px;
-      color: white;
+      color: $white;
       align-self: flex-end;
-      background: #ff5a5f;
+      background: $light-red-500;
       transition: background-color 0.2s linear;
 
       &:hover {
-        background: #f98185;
+        background: $light-red-300;
       }
 
       &:active {
-        background: #ff5a5f;
+        background: $light-red-500;
       }
 
       @media screen and (min-width: $break-medium) {
